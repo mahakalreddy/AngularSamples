@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <style>
+    table, th , td {
+      border: 1px solid grey;
+      padding: 7px;
+      border-collapse: collapse;
+
+    }
+
+ </style>
+</head>
+
+<body>
+
+     <div ng-app = "myApp" ng-controller = "myCtrl" ng-init="">
+
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>password</th>
+          </tr>
+          <tr ng-repeat="student in Students | orderBy: 'name'">
+              <td>{{ student.Name | uppercase}}</td>
+            <td>{{ student.Username | uppercase}}</td>
+            <td>{{ student.password| uppercase}}</td>
+          </tr>
+        </table>
+
+      </div>
+
+      <script>
+         var mainApp = angular.module("myApp", []);
+
+         mainApp.controller('myCtrl', function($scope) {
+            $scope.Students = [
+                              {Name: 'Brad Brown',Username:'brad',password:'abc@12'},
+                              {Name: 'Goerge philips',Username:'Goerge',password:'asdf!2'},
+                              {Name: 'Ross albert',Username:'Ross',password:'ssdmj@12'},
+                              {Name: 'Aandy pinacle',Username:'Aandy',password:'nxyg#45'},
+                              {Name: 'Sammy Johnson',Username:'Sammy',password:'chepp@#$%'}
+                             ]
+
+         });
+      </script>
+
+</body>
+</html>
